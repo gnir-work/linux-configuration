@@ -38,4 +38,5 @@ echo "Creating basic home folder layout"
 cd ~
 mkdir Software
 mkdir Code
+cd -
 echo "Done creating Software and Code folders"
