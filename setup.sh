@@ -33,3 +33,9 @@ cp .zshrc ~
 # Doing these will run zsh on terminal start (This is a patch but setting zsh to default shell doesn't work)
 echo zsh >> ~/.bashrc
 echo "Done"
+
+echo "Creating basic home folder layout"
+cd ~
+mkdir Software
+mkdir Code
+echo "Done creating Software and Code folders"
