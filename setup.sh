@@ -40,3 +40,7 @@ mkdir Software
 mkdir Code
 cd -
 echo "Done creating Software and Code folders"
+
+# Changing language with alt + shift
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
