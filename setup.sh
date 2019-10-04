@@ -40,12 +40,11 @@ gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt
 
 echo "Installing zsh"
 sudo apt-get install zsh -y
+# Doing these will run zsh on terminal start (This is a patch but setting zsh to default shell doesn't work)
+echo zsh >> ~/.bashrc
 echo "Done"
 
 echo "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cp .zshrc ~
-
-# Doing these will run zsh on terminal start (This is a patch but setting zsh to default shell doesn't work)
-echo zsh >> ~/.bashrc
+ln -s ~/.linux-configuration/.zshrc ~/.zshrc
 echo "Done"
