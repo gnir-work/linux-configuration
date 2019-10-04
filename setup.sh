@@ -34,6 +34,7 @@ echo "Done"
 
 echo "Installing basic pip packages"
 pip install -r requirments.txt
+ln -s ~/.linux-configuration/flake8 ~/.config/flake8
 echo "Done"
 
 echo "Creating basic home folder layout"

@@ -23,7 +23,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'ambv/black'
-Plugin 'mileszs/ack.vim'
+Plugin 'epmatsw/ag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,6 +85,9 @@ if has("unnamedplus")
   set clipboard=unnamedplus
 endif " has("unnamedplus")
 
+" Set leader to space
+let mapleader = ","
+
 " Enable line numbering
 set nu
 
@@ -107,6 +110,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Searching and Replace mappings
+nnoremap <C-h> :%s/<C-r><C-w>/
+nnoremap <C-S-F> :Ag! <C-r><C-w>
+nnoremap <C-S-N> :AgFile!<Space>
+
 " Set encoding to utf-8
 set encoding=utf-8
 
@@ -126,6 +134,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" Dont jump to first result with ack
+cnoreabbrev Ack Ack!
+
 " Show current branch in a git repo
 let gitoutput = split(system('git status --porcelain -b '.shellescape(expand('%')).' 2>/dev/null'),'\n')
 if len(gitoutput) > 0
@@ -143,7 +154,6 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python3', 'flake8']
 
