@@ -28,8 +28,8 @@ sudo apt-get install curl -y
 echo "Done"
 
 echo "Installing pip"
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py
+curl https://bootstrap.pypa.io/get-pip.py -o ~/.linux-configuration/get-pip.py
+python ~/.linux-configuration/get-pip.py
 echo "Done"
 
 echo "Installing basic pip packages"
