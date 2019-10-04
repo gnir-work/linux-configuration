@@ -1,6 +1,6 @@
 set -x
 
-echo "Configurating git."
+echo "Configurating git..."
 git config --global user.email "gnir.work@gmail.com"
 git config --global user.name "Nir Geller"
 echo "Done"
@@ -12,11 +12,6 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local
 cd -
-echo "Done"
-
-echo "Installing vim..."
-sudo apt-get install vim -y
-ln -s ~/.linux-configuration/.vimrc ~/.vimrc
 echo "Done"
 
 echo "Installing the silver searcher"
@@ -35,6 +30,12 @@ echo "Done"
 echo "Installing basic pip packages"
 pip install -r requirments.txt
 ln -s ~/.linux-configuration/flake8 ~/.config/flake8
+echo "Done"
+
+echo "Installing vim..."
+sudo apt-get install vim -y
+ln -s ~/.linux-configuration/.vimrc ~/.vimrc
+vim +PluginInstall +qall
 echo "Done"
 
 echo "Creating basic home folder layout"
