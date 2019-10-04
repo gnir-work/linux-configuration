@@ -23,6 +23,17 @@ echo "Installing curl"
 sudo apt-get install curl -y
 echo "Done"
 
+echo "Creating basic home folder layout"
+mkdir ~/Software
+mkdir ~/Code
+mkdir ~/Movies
+mkdir ~/Series
+echo "Done creating Software and Code folders"
+
+# Changing language with alt + shift
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+
 echo "Installing zsh"
 sudo apt-get install zsh -y
 echo "Done"
@@ -34,14 +45,3 @@ cp .zshrc ~
 # Doing these will run zsh on terminal start (This is a patch but setting zsh to default shell doesn't work)
 echo zsh >> ~/.bashrc
 echo "Done"
-
-echo "Creating basic home folder layout"
-cd ~
-mkdir Software
-mkdir Code
-cd -
-echo "Done creating Software and Code folders"
-
-# Changing language with alt + shift
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
