@@ -27,6 +27,15 @@ echo "Installing curl"
 sudo apt-get install curl -y
 echo "Done"
 
+echo "Installing pip"
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+echo "Done"
+
+echo "Installing basic pip packages"
+pip install -r requirments.txt
+echo "Done"
+
 echo "Creating basic home folder layout"
 mkdir ~/Software
 mkdir ~/Code
