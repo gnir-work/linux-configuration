@@ -16,6 +16,7 @@ echo "Done"
 
 echo "Installing vim..."
 sudo apt-get install vim -y
+ln -s ~/.linux-configuration/.vimrc ~/.vimrc
 echo "Done"
 
 echo "Installing curl"
