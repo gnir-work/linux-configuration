@@ -110,7 +110,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Searching and Replace mappings
+" Searching and replacing mapping
 nnoremap <C-h> :%s/<C-r><C-w>/
 nnoremap <C-S-F> :Ag! <C-r><C-w>
 nnoremap <C-S-N> :AgFile!<Space>
@@ -122,20 +122,8 @@ set encoding=utf-8
 let g:ycm_autoclose_preview_window_after_completion=1 
 map <C-B>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Python highlight syntax
-let python_highlight_all=1
-syntax on
-
 " Color Scheme
 colorscheme zenburn
-
-" Configure ack to work with ag
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" Dont jump to first result with ack
-cnoreabbrev Ack Ack!
 
 " Show current branch in a git repo
 let gitoutput = split(system('git status --porcelain -b '.shellescape(expand('%')).' 2>/dev/null'),'\n')
@@ -157,5 +145,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python3', 'flake8']
 
-" Python max line width
-au BufReadPost,BufNewFile *.py set colorcolumn=120 | highlight ColorColumn ctermbg=0 guibg=lightgrey
+" Python specific mappings and commands.
+au BufReadPost,BufNewFile *.py set colorcolumn=120 
+    \ | highlight ColorColumn ctermbg=0 guibg=lightgrey 
+    \ | noremap <C-l> :Black<CR>
