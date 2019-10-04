@@ -102,3 +102,7 @@ function take() {
 # Exporting paths to $PATH variable
 export PATH=$PATH:/home/nir/scripts
 export EDITOR=vim
+
+# Start tmux on terminal start
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux

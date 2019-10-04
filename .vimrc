@@ -16,13 +16,14 @@ Plugin 'gmarik/Vundle.vim'
 " used Bundle instead of Plugin)
 
 " ...
-Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 Plugin 'jnurmine/Zenburn'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'ambv/black'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'ambv/black'
+" Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -109,10 +110,6 @@ nnoremap <C-H> <C-W><C-H>
 " Set encoding to utf-8
 set encoding=utf-8
 
-" Configuring simply fold
-let g:SimpylFold_docstring_preview=1
-set foldlevelstart=1
-
 " Configureing You Complete Me
 let g:ycm_autoclose_preview_window_after_completion=1 
 map <C-B>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -123,3 +120,8 @@ syntax on
 
 " Color Scheme
 colorscheme zenburn
+
+" Configure ack to work with ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif

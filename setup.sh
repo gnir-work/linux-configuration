@@ -19,6 +19,10 @@ sudo apt-get install vim -y
 ln -s ~/.linux-configuration/.vimrc ~/.vimrc
 echo "Done"
 
+echo "Installing the silver searcher"
+sudo apt-get install silversearcher-ag -y
+echo "Done"
+
 echo "Installing curl"
 sudo apt-get install curl -y
 echo "Done"
