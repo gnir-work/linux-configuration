@@ -18,12 +18,12 @@ Plugin 'gmarik/Vundle.vim'
 " ...
 " Plugin 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
-" Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'jnurmine/Zenburn'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plugin 'ambv/black'
-" Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'ambv/black'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -125,3 +125,25 @@ colorscheme zenburn
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" Show current branch in a git repo
+let gitoutput = split(system('git status --porcelain -b '.shellescape(expand('%')).' 2>/dev/null'),'\n')
+if len(gitoutput) > 0
+    let gitstatus = systemlist("git branch | sed -n '/\* /s///p'")[0]
+else
+    let gitstatus = 'not a git repo'
+endif
+
+let g:airline_section_b = '%{gitstatus}'
+
+" Startkit for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['python3', 'flake8']
+
