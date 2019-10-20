@@ -24,6 +24,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'ambv/black'
 Plugin 'epmatsw/ag.vim'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -111,16 +112,19 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Searching and replacing mapping
-nnoremap <C-h> :%s/<C-r><C-w>/
-nnoremap <C-S-F> :Ag! <C-r><C-w>
-nnoremap <C-S-N> :AgFile!<Space>
+nnoremap <Leader>h :%s/<C-r><C-w>/
+nnoremap <Leader>f :Ag! <C-r><C-w>
+nnoremap <Leader>n :AgFile!<Space>
 
 " Set encoding to utf-8
 set encoding=utf-8
 
 " Configureing You Complete Me
 let g:ycm_autoclose_preview_window_after_completion=1 
-map <C-B>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <Leader>d  :YcmCompleter GoToDefinitionElseDeclaration <CR>
+map <Leader>b  :YcmCompleter GoToReferences <CR>
+map <Leader>q  :YcmCompleter GetDoc <CR>
+
 
 " Color Scheme
 colorscheme zenburn
@@ -143,9 +147,13 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['python3', 'flake8']
+let g:syntastic_python_checkers = ['python3', 'flake8', 'mypy']
+
+" Configure nerd tree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Python specific mappings and commands.
 au BufReadPost,BufNewFile *.py set colorcolumn=120 
     \ | highlight ColorColumn ctermbg=0 guibg=lightgrey 
-    \ | noremap <C-l> :Black<CR>
+    \ | noremap <Leader>l :Black<CR>
