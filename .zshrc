@@ -99,10 +99,6 @@ function take() {
 	cd $1
 }
 
-# Exporting paths to $PATH variable
-export PATH=$PATH:/home/nir/scripts
-export EDITOR=vim
-
-# Start tmux on terminal start
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
