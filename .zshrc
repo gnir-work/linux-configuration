@@ -91,6 +91,7 @@ alias cp='cp -i'
 alias ln='n -i'
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias zzz="sudo systemctl suspend"
+alias bye="sudo systemctl poweroff"
 alias hyber="sudo systemctl hybrid-sleep"
 alias please='sudo $(fc -ln -1)'
 
