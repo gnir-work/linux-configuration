@@ -23,3 +23,6 @@ pip install -r requirments.txt
 ln -s ~/.linux-configuration/flake8 ~/.config/flake8
 echo "Done"
 
+echo "Configuring theme..."
+bash -c  "$(wget -qO- https://git.io/vQgMr)"
+echo "Done"
