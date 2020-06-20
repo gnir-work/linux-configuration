@@ -27,18 +27,15 @@ curl https://bootstrap.pypa.io/get-pip.py -o ~/.linux-configuration/get-pip.py
 python ~/.linux-configuration/get-pip.py
 echo "Done"
 
-echo "Installing basic pip packages..."
-pip install -r requirments.txt
-ln -s ~/.linux-configuration/flake8 ~/.config/flake8
-echo "Done"
-
 echo "Installing pyenv..."
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+sudo apt install gcc build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev uuid-dev 
 echo "Done"
 
 echo "Installing vim..."
 sudo apt-get install vim -y
 ln -s ~/.linux-configuration/.vimrc ~/.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 echo "Done"
 
