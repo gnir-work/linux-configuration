@@ -5,6 +5,10 @@ git config --global user.email "gnir.work@gmail.com"
 git config --global user.name "Nir Geller"
 echo "Done"
 
+echo "Installing htop"
+sudo apt-get install htop -y
+echo "Done"
+
 echo "Installing tmux..."
 sudo apt-get install tmux -y
 cd ~
