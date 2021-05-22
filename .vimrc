@@ -120,14 +120,14 @@ map <Leader>q  :YcmCompleter GetDoc <CR>
 colorscheme zenburn
 
 " Show current branch in a git repo
-let gitoutput = split(system('git status --porcelain -b '.shellescape(expand('%')).' 2>/dev/null'),'\n')
-if len(gitoutput) > 0
-    let gitstatus = systemlist("git branch | sed -n '/\* /s///p'")[0]
-else
-    let gitstatus = 'not a git repo'
-endif
-
-let g:airline_section_b = '%{gitstatus}'
+" let gitoutput = split(system('git status --porcelain -b '.shellescape(expand('%')).' 2>/dev/null'),'\n')
+" if len(gitoutput) > 0
+"     let gitstatus = systemlist("git branch | sed -n '/\* /s///p'")[0]
+" else
+"     let gitstatus = 'not a git repo'
+" endif
+" 
+" let g:airline_section_b = '%{gitstatus}'
 
 " Startkit for syntastic
 set statusline+=%#warningmsg#
