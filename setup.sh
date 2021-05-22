@@ -1,4 +1,9 @@
-set -x
+#!/bin/bash
+set -x -e
+
+echo "Setting wallpaper..."
+gsettings set org.gnome.desktop.background picture-uri file:///`pwd`/.linux-configuration/wallpaper.jpg
+echo "Done"
 
 echo "Configurating git..."
 git config --global user.email "gnir.work@gmail.com"
