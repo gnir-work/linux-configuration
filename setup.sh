@@ -56,8 +56,9 @@ mkdir ~/Series
 echo "Done"
 
 # Changing language with alt + shift
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
-gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+# Commented out as this combination is used by jetbrains for navigation
+#gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+#gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
 
 echo "Installing zsh..."
 sudo apt-get install zsh -y
